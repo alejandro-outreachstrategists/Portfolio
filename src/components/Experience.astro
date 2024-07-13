@@ -1,0 +1,38 @@
+---
+import ExperienceItem from "./ExperienceItem.astro"
+const EXPERIENCIE = [
+  {
+    date: "Present",
+    title: "Web Developer",
+    company: "Outreach Strategists",
+    description:
+      "Using technologies such as Next.js and Flutter, and following an Agile and Scrum work methodology, I participated in variousprojects, including the maintenance and improvement of existing platforms and the creation of new ones.",
+    
+  },
+  {
+    date: "July 2022 to August 2023",
+    title: "Frontend Developer",
+    company: "IBM",
+    description:
+      " Through technologies such as ReactJS, bootstrap, JavaScript, and Typescript following an Agile and Scrum work methodology, I participated in two different projects. The first one involved the maintenance and improvement of a platform where changes were implemented and errors were identified that did not allow the proper handling of the page, always giving an adequate resolution that ended up giving a great user experience. In the second project, I worked on the creation of a new platform from scratch, where we tried to provide the best user experience in addition to a massive migration of applications and users. Thanks to this, I had the opportunity to participate not only in the creation of a new tool, but I also gained experience in project management topics.",
+  },
+
+  {
+    date: "Ocotober 2021 to July 2022",
+    title: "Technical Support L1",
+    company: "IBM",
+    description:
+      "Through the use of technologies such as HTML, APIs, Postman, and SQL, provided technical support that was considered outstanding by several users and customers.",
+  },
+]
+---
+
+<ol class="relative mt-16">
+  {
+    EXPERIENCIE.map((experiencie) => (
+      <li class="">
+        <ExperienceItem {...experiencie} />
+      </li>
+    ))
+  }
+</ol>

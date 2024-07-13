@@ -1,0 +1,100 @@
+---
+import GitHub from "./icons/GitHub.astro"
+import NextJS from "./icons/NextJS.astro"
+import Tailwind from "./icons/Tailwind.astro"
+import DNN from "./icons/Dnn.astro"
+import Link from "./icons/Link.astro"
+import LinkButton from "./LinkButton.astro"
+
+const TAGS = {
+  NEXT: {
+    name: "Next.js",
+    class: "bg-black text-white",
+    icon: NextJS,
+  },
+  TAILWIND: {
+    name: "Tailwind CSS",
+    class: "bg-[#003159] text-white",
+    icon: Tailwind,
+  },
+  DNN: {
+    name: "DNN",
+    class: "bg-[#00a8e1] text-white",
+    icon: DNN,
+  },
+}
+const PROJECTS = [
+  {
+    title: "Who is my Representative? - A tool for Texas citizens",
+    description:
+      "A portal where citizens of Texas can identify who their representatives will be in the upcoming election by simply entering their zip code.",
+    link: "https://www.whoismyreptexas.com/",
+    image: "/projects/who-is.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Uplift Harris - Households Program",
+    description:
+      "Informative page where people from Harris County can take a look at what the Uplift Harris program is all about and answer their questions about it. ",
+    link: "https://uplift.harriscountytx.gov/",
+    image: "/projects/uplift.webp",
+    tags: [TAGS.NEXT, TAGS.TAILWIND],
+  },
+  {
+    title: "Harris County Community Flood Resilience Task Force",
+    description:
+      "The Community Flood Resilience Task Force (CFRTF) is a multidisciplinary, community-driven 17–member body established to advise Harris County on equitable flood resilience planning and projects that take into account the needs and priorities of communities.",
+    link: "https://cfrtf.harriscountytx.gov/",
+    image: "/projects/flood.webp",
+    tags: [TAGS.DNN],
+  },
+]
+---
+
+<div class="flex flex-col gap-y-16">
+  {
+    PROJECTS.map(({ image, title, description, tags, link }) => (
+    <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0">
+  <div class="w-full md:w-1/2">
+    <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
+      <img alt="Recién llegado vs 5 años en Nueva Zelanda" class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105" loading="lazy" src={image} />
+    </div>
+  </div>
+
+  <div class="w-full md:w-1/2 md:max-w-lg">
+    <h3 class="text-2xl font-bold text-gray-800 dark:text-gray-100">
+      {title}
+    </h3>
+    <div class="flex flex-wrap mt-2">
+      <ul class="flex flex-row mb-2 gap-x-2">
+          {tags.map((tag) => (
+            <li>
+              <span
+                class={`flex gap-x-2 rounded-full text-xs ${tag.class} py-1 px-2 `}
+              >
+                <tag.icon class="size-4" />
+                {tag.name}
+              </span>
+            </li>
+          ))}
+        </ul>
+
+      <div class="mt-2 text-gray-700 dark:text-gray-400">{description}</div>
+      <footer class="flex items-end justify-start mt-4 gap-x-4">
+          
+          {link && (
+            <LinkButton href={link} >
+              <Link class="size-4"  />
+              Preview
+            </LinkButton>
+          )}
+        </footer>
+    </div>
+  </div>
+</article>
+    ))
+  }
+</div>
+
+
+
